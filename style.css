@@ -147,72 +147,68 @@ button {
 /* 6. Sección Inferior */
 .bottom-section {
     text-align: left;
-    padding: 60px 5%;
+    padding: 40px 5%; /* Reduje un poco el padding superior */
 }
 
 .bottom-section h2 {
-    font-size: 48px;
+    font-size: clamp(24px, 8vw, 48px); /* Tamaño fluido: mínimo 24px, máximo 48px */
     font-weight: 700;
 }
-.best-sellers-container {
-    padding: 40px 5%;
-    background-color: #fff;
-}
 
-.section-title {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-/* Cuadrícula de 2 columnas */
 .product-grid-v2 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px 20px; /* 40px de espacio vertical, 20px horizontal */
-    
-}
-
-/* Tarjeta de producto */
-.product-card {
-    display: flex;
-    flex-direction: column;
+    /* Por defecto 2 columnas, pero usaremos media queries abajo */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px 20px;
 }
 
 .product-img-box {
-    background-color: #f6f6f6; /* Color de fondo gris claro de las fotos */
+    background-color: #f6f6f6;
     border-radius: 4px;
     margin-bottom: 15px;
     overflow: hidden;
+    /* Esto asegura que el contenedor mantenga una forma bonita */
+    aspect-ratio: 4 / 5; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-img-box img {
-    
+    width: 100%;       /* Ocupa todo el ancho del contenedor */
+    height: 100%;      /* Ocupa todo el alto del contenedor */
     display: block;
-    mix-blend-mode: multiply; /* Ayuda a que el fondo de la imagen se mezcle */
-    height: 500px;
+    mix-blend-mode: multiply;
+    object-fit: contain; /* Evita que la imagen se deforme o se corte */
 }
 
-/* Alineación de Nombre y Precio */
-.product-details {
-    display: flex;
-    justify-content: space-between; /* Nombre a la izquierda, precio a la derecha */
-    align-items: flex-start;
-    gap: 15px;
+/* --- RESPONSIVIDAD (Media Queries) --- */
+
+/* Para tablets y móviles grandes (menos de 768px) */
+@media (max-width: 768px) {
+    .bottom-section h2 {
+        font-size: 32px;
+    }
+    
+    .product-grid-v2 {
+        gap: 20px 15px;
+    }
 }
 
-.product-title {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.2;
-    max-width: 70%; /* Evita que el nombre encime al precio */
-}
+/* Para móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .product-grid-v2 {
+        /* Cambiamos a 1 sola columna para que se vea bien en celulares */
+        grid-template-columns: 1fr; 
+    }
 
-.product-cost {
-    font-size: 14px;
-    font-weight: 400;
-    color: #666;
+    .bottom-section {
+        padding: 30px 5%;
+    }
+
+    .product-title, .product-cost {
+        font-size: 13px; /* Un poco más pequeño en móvil */
+    }
 }
 .footer-info {
     background-color: #ffffff;
