@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif, Arial; /* Figma suele usar Inter o tipografías similares */
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* 2. Encabezado (Header) */
+.main-header {
+    display:flex;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid #f0f0f0; /* Una línea sutil para separar */
+}
+
+
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Espacio entre los enlaces */
+    
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+}
+.main-nav a:hover{
+color:#727171;
+
+}
+/* 3. Sección de Héroe (Texto y Botones) */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* 4. Estilos de los Botones */
+button {
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+.btn-secondary:hover {
+    background-color: #dedede;
+}
+
+/* 5. Cuadrícula de Productos (Grid) */
+.product-grid-section {
+    padding: 0 5%;
+    margin-bottom: 80px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    gap: 10px; /* Espacio entre las imágenes */
+}
+
+.product-item img {
+    width: 100%;
+    height: 600px; /* Altura fija para que todas se vean parejas */
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+    border-radius: 4px;
+}
+.slider-container {
+    overflow: hidden;
+    width: 100%;
+    background: white;
+    padding: 20px 0;
+}
+
+/* El riel que contiene todas las imágenes (originales + copias) */
+.slider-track {
+    display: flex;
+    width: calc(250px * 8); /* Ajusta según el ancho de tus imágenes x 8 */
+    animation: scroll 20s linear infinite; /* 20s controla la velocidad */
+}
+
+/* Estilo de cada imagen */
+.product-item {
+    width: 300px; /* Ancho fijo para cada imagen */
+    flex-shrink: 0;
+    padding: 0 10px;
+}
+
+
+
+/* La magia: Animación de desplazamiento */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Se desplaza exactamente la mitad (la primera tanda de imágenes) */
+        transform: translateX(-50%);
+    }
+}
+
+/* 6. Sección Inferior */
+.bottom-section {
+    text-align: left;
+    padding: 60px 5%;
+}
+
+.bottom-section h2 {
+    font-size: 48px;
+    font-weight: 700;
+}
+.best-sellers-container {
+    padding: 40px 5%;
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Cuadrícula de 2 columnas */
+.product-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px; /* 40px de espacio vertical, 20px horizontal */
+    
+}
+
+/* Tarjeta de producto */
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-img-box {
+    background-color: #f6f6f6; /* Color de fondo gris claro de las fotos */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.product-img-box img {
+    
+    display: block;
+    mix-blend-mode: multiply; /* Ayuda a que el fondo de la imagen se mezcle */
+    height: 500px;
+}
+
+/* Alineación de Nombre y Precio */
+.product-details {
+    display: flex;
+    justify-content: space-between; /* Nombre a la izquierda, precio a la derecha */
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.product-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 70%; /* Evita que el nombre encime al precio */
+}
+
+.product-cost {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+.footer-info {
+    background-color: #ffffff;
+    padding: 60px 5% 80px;
+    font-family: 'Inter', sans-serif, Arial;
+}
+
+/* Línea divisoria superior */
+.footer-divider {
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: flex-start; /* Alineación a la izquierda */
+    gap: 100px; /* Espacio entre las dos columnas */
+}
+
+.footer-column {
+    max-width: 450px; /* Controla el ancho del texto legal */
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666; /* Gris para el cuerpo de texto legal */
+}
+
+/* Lista de contacto */
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #666;
+    cursor: pointer;
+}
+
+.contact-list li:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+body, h2, p, blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif, Arial; /* O la fuente que uses */
+}
+
+/* Sección principal */
+.historia-cita-section {
+    background-color: #ffffff;
+    padding: 100px 0 60px; /* Mucho espacio arriba, poco abajo antes del divisor */
+}
+
+/* --- 1. Sección de Historia (El truco de centrado) --- */
+.historia-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra el bloque en la página */
+    margin-bottom: 120px; /* Espacio antes de la cita */
+}
+
+.historia-content {
+    max-width: 650px; /* Ancho máximo para que no ocupe toda la pantalla */
+    text-align: left; /* El texto se alinea a la IZQUIERDA dentro de este bloque */
+    padding: 0 20px; /* Un poco de margen en móviles */
+}
+
+.historia-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 25px;
+}
+
+.historia-content p {
+    font-size: 16px;
+    line-height: 1.6; /* Espaciado entre líneas para que respire */
+    color: #666; /* Color gris suave */
+}
+
+/* --- 2. Sección de Cita y CEO --- */
+.cita-ceo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo este bloque horizontalmente */
+    text-align: center; /* El texto está centrado */
+}
+
+.cita-texto {
+    font-size: 44px;
+    font-weight: 500;
+    font-style: italic; /* Cursiva */
+    color: #000;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    position: relative;
+}
+
+/* Estilos para el bloque del CEO */
+.ceo-block {
+    display: flex;
+    align-items: center; /* Alinear verticalmente avatar y texto */
+    gap: 15px; /* Espacio entre avatar y texto */
+}
+
+.avatar-container {
+    width: 55px;
+    height: 55px;
+    background-color: #ffecd1; /* Color melocotón de fondo */
+    border-radius: 50%; /* Circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-face {
+    font-size: 26px; /* Tamaño del emoji */
+}
+
+.ceo-text {
+    text-align: left; /* El texto del CEO vuelve a alinearse a la izquierda */
+}
+
+.ceo-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.ceo-title {
+    font-size: 14px;
+    color: #666; /* Color gris suave */
+}
+
+/* --- Línea Divisoria Inferior --- */
+.historia-divisor {
+    border-top: 1px solid #e0e0e0;
+    max-width: 900px;
+    margin: 80px auto 0; /* Centrada con margen arriba */
+}
+
+/* --- Responsive básico --- */
+@media (max-width: 768px) {
+    .cita-texto {
+        font-size: 32px;
+    }
+}
+.ayuda-section {
+    padding: 60px 5%;
+    background-color: #fff;
+}
+
+.ayuda-section h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.ayuda-section .subtitle {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de las 3 tarjetas */
+.ayuda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Estilo de la tarjeta */
+.ayuda-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el footer al fondo */
+    min-height: 280px; /* Asegura que todas midan lo mismo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.ayuda-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Listas con puntos */
+.ayuda-card ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.ayuda-card li {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* Footer de Soporte Técnico */
+.soporte-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.soporte-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* Colores de los iconos de fondo */
+.icon-orange { background-color: #fef0e7; }
+.icon-blue { background-color: #f0f4ff; }
+.icon-green { background-color: #eff9ed; }
+
+.soporte-footer p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+/* Responsivo para tablets y móviles */
+@media (max-width: 1024px) {
+    .ayuda-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .ayuda-grid { grid-template-columns: 1fr; }
+}
